@@ -9,6 +9,15 @@ indices = []
 corr = data[0]
 p_vals = data[1]
 
+# Convert all the values to positives
+for i in range(48):
+	for j in range(48):
+		corr[i, j] = abs(corr[i, j])
+
+for i in range(48):
+	for j in range(48):
+		p_vals[i, j] = abs(p_vals[i, j])
+
 
 fields = ["Results Pitch", "Results Time", "Age", "Gender","WAIS_vocabularyRP","WAIS_vocabularySP","WAIS_similaritiesRP","WAIS_similaritiesSP","WAIS_informationRP","WAIS_informationSP","WAIS_picturecompletionRP","WAIS_picturecompletionSP","WAIS_digitsymbolcodingRP","WAIS_digitsymbolcodingSP","WAIS_blockdesignRP","WAIS_blockdesignSP","WAIS_matrixreasoningRP","WAIS_matrixreasoningSP","WAIS_symbolsearchRP","WAIS_symbolsearchSP","WAIS_VCI_verbal_comprehension_index","WAIS_POI_perceptual_organization_index","WAIS_PSI_processing_speed_index","WMS_letternumbersequenceRP","WMS_letternumbersequenceSP","WMS_spatialspanRP","WMS_spatialspanSP","WMS_word_lists1RP","WMS_word_lists1SP","WMS_word_lists2RP","WMS_word_lists2SP","WMS_wordlists_recognitionRP","WMS_wordlists_recognitionSP","WMS_workingmemoryindex","TrailMakingA_time_in_seconds","TrailMakingA_percentile","TrailMakingA_numberoferrors","TrailMakingB_time_in_seconds","TrailMakingB_percentile","TrailMakingB_numberoferrors","TrailMaking_difference_percentile","TrailMaking_ratiopercentile","Stroop_word_reading_time","Stroop_word_reading_no_of_errors","Stroop_colournaming_time","Stroop_colournaming_nooferrors","Stroop_interference_time","Stroop_interference_nooferrors"]
 counter = 0
