@@ -23,7 +23,7 @@ counter = 0
 # 	max = 0
 # 	for i in range(48):
 # 		for j in range(48):
-# 			if corr[i, j] > max:
+# 			if corr[i, j] > max and (i == 1 or j == 1):
 # 				max = corr[i, j]
 # 				temp_i = i
 # 				temp_j = j
@@ -34,25 +34,25 @@ counter = 0
 # 	corr[temp_i, temp_j] = 0
 
 
-# The other thing
-# for i in range(48):
-# 	for j in range(48):
-# 		if i == j:
-# 			p_vals[i, j] = 100
+# The p values
+for i in range(48):
+	for j in range(48):
+		if i == j:
+			p_vals[i, j] = 100
 
-# while counter < 10:
-# 	min = 9999999
-# 	for i in range(48):
-# 		for j in range(48):
-# 			if p_vals[i, j] < min:
-# 				min = p_vals[i, j]
-# 				temp_i = i
-# 				temp_j = j
+while counter < 10:
+	min = 9999999
+	for i in range(48):
+		for j in range(48):
+			if p_vals[i, j] < min and (i == 1 or j == 1):
+				min = p_vals[i, j]
+				temp_i = i
+				temp_j = j
 
-# 	if temp_j > temp_i and abs(temp_i - temp_j) > 1:
-# 		indices.append((temp_i, temp_j))
-# 		counter += 1
-# 	p_vals[temp_i, temp_j] = 100
+	if temp_j > temp_i and abs(temp_i - temp_j) > 1:
+		indices.append((temp_i, temp_j))
+		counter += 1
+	p_vals[temp_i, temp_j] = 100
 
 
 for indexes in indices:
