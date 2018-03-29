@@ -1,0 +1,23 @@
+For Pitch:
+
+Call:
+lm(formula = Results.Pitch ~ WMS_word_lists1RP + WAIS_blockdesignRP + 
+    WMS_wordlists_recognitionRP + TrailMakingB_percentile + TrailMaking_ratiopercentile, 
+    data = corrdata)
+
+Coefficients:
+                (Intercept)            WMS_word_lists1RP           WAIS_blockdesignRP  WMS_wordlists_recognitionRP  
+                   17.11319                      0.76107                     -0.55258                      0.80162  
+    TrailMakingB_percentile  TrailMaking_ratiopercentile  
+                    0.18430                     -0.08833 
+
+
+For Time:
+
+Call:
+lm(formula = Results.Time ~ TrailMakingA_percentile + WAIS_blockdesignSP, 
+    data = corrdata1)
+
+Coefficients:
+            (Intercept)  TrailMakingA_percentile       WAIS_blockdesignSP  
+                53.3365                   0.1284                  -1.6023
