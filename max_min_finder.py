@@ -23,46 +23,46 @@ fields = ["Results Pitch", "Results Time", "Age", "Gender","WAIS_vocabularyRP","
 counter = 0
 
 # Correlation
-for i in range(48):
-	for j in range(48):
-		if i == j:
-			corr[i, j] = 0
-
-while counter < 10:
-	max = 0
-	for i in range(48):
-		for j in range(48):
-			if corr[i, j] > max and (i == 1 or j == 1):
-				max = corr[i, j]
-				temp_i = i
-				temp_j = j
-
-	if temp_j > temp_i and abs(temp_j - temp_i) > 1:
-		indices.append((temp_i, temp_j))
-		counter += 1
-	corr[temp_i, temp_j] = 0
-
-
-# The p values
-# for i in range(55):
-# 	for j in range(55):
+# for i in range(48):
+# 	for j in range(48):
 # 		if i == j:
-# 			p_vals[i, j] = 100
+# 			corr[i, j] = 0
 
 # while counter < 10:
-# 	min = 9999999
-# 	for i in range(55):
-# 		for j in range(55):
-# 			if p_vals[i, j] < min and (i == 1 or j == 1):
-# 				min = p_vals[i, j]
+# 	max = 0
+# 	for i in range(48):
+# 		for j in range(48):
+# 			if corr[i, j] > max and (i == 1 or j == 1):
+# 				max = corr[i, j]
 # 				temp_i = i
 # 				temp_j = j
 
-# 	if temp_j > temp_i and abs(temp_i - temp_j) > 1:
-# 		indices.append((temp_i, temp_j))
+# 	if temp_j > temp_i and abs(temp_j - temp_i) > 1:
+# 		indices.append((temp_i, temp_j, corr[temp_i, temp_j]))
 # 		counter += 1
-# 	p_vals[temp_i, temp_j] = 100
+# 	corr[temp_i, temp_j] = 0
+
+
+# The p values
+for i in range(55):
+	for j in range(55):
+		if i == j:
+			p_vals[i, j] = 100
+
+while counter < 10:
+	min = 9999999
+	for i in range(55):
+		for j in range(55):
+			if p_vals[i, j] < min and (i == 1 or j == 1):
+				min = p_vals[i, j]
+				temp_i = i
+				temp_j = j
+
+	if temp_j > temp_i and abs(temp_i - temp_j) > 1:
+		indices.append((temp_i, temp_j, p_vals[temp_i, temp_j]))
+		counter += 1
+	p_vals[temp_i, temp_j] = 100
 
 
 for indexes in indices:
-	print(fields[indexes[0]],"and", fields[indexes[1]])
+	print(fields[indexes[0]],"and", fields[indexes[1]], indexes[2])
